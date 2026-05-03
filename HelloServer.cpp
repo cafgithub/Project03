@@ -1,11 +1,29 @@
 #include "HelloS.h"
 #include "orbsvcs/CosNamingC.h"
 #include "ace/Log_Msg.h"
+#include <ctime>
+#include <sstream>
+#include <string>
 
 class HelloImpl : public POA_Hello {
 public:
     virtual char* sayHello() override {
-        return CORBA::string_dup("Hello from TAO Server registered with Central Naming Service! - CAF Merdoso");
+        // Get current time
+        time_t now = time(0);
+        std::string time_str = ctime(&now);
+        // Remove newline character from ctime result
+        if (!time_str.empty() && time_str[time_str.length()-1] == '\n') {
+            time_str.erase(time_str.length()-1);
+        }
+        
+        // Log to console when this method is called by client
+        ACE_DEBUG((LM_INFO, "📞 Client called sayHello() at %s\n", time_str.c_str()));
+        
+        // Create response message with timestamp
+        std::ostringstream oss;
+        oss << "Hello from TAO Server registered with Central Naming Service! - CAF Merdoso [Time: " << time_str << "]";
+        
+        return CORBA::string_dup(oss.str().c_str());
     }
 };
 
