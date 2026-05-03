@@ -1,3 +1,7 @@
-interface Hello {
-    string sayHello();
+// Hello.idl
+module Hello {
+    interface HelloService {
+        string sayHello();
+        string getCurrentDateTime();  // New function
+    };
 };

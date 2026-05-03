@@ -28,7 +28,7 @@
 
 
 ACE_INLINE
-Hello::Hello (
+Hello::HelloService::HelloService (
     TAO_Stub *objref,
     ::CORBA::Boolean _tao_collocated,
     TAO_Abstract_ServantBase *servant,
@@ -38,7 +38,7 @@ Hello::Hello (
 }
 
 ACE_INLINE
-Hello::Hello (
+Hello::HelloService::HelloService (
     ::IOP::IOR *ior,
     TAO_ORB_Core *oc)
   : ::CORBA::Object (ior, oc)

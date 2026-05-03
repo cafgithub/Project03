@@ -25,27 +25,27 @@
 // TAO_IDL - Generated from
 // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_codegen.cpp:454
 
-#ifndef _TAO_IDL_HELLOS_8RLP2Q_H_
-#define _TAO_IDL_HELLOS_8RLP2Q_H_
+#ifndef _TAO_IDL_HELLOS_B3SCA5_H_
+#define _TAO_IDL_HELLOS_B3SCA5_H_
 
 
 #include "HelloC.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/Basic_SArguments.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/Special_Basic_SArguments.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/Fixed_Size_SArgument_T.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/Var_Size_SArgument_T.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/Object_SArg_Traits.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/UB_String_SArguments.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/get_arg.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Special_Basic_Arguments.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/UB_String_Arguments.h"
+#include "tao/PortableServer/Basic_SArguments.h"
+#include "tao/PortableServer/Special_Basic_SArguments.h"
+#include "tao/PortableServer/Fixed_Size_SArgument_T.h"
+#include "tao/PortableServer/Var_Size_SArgument_T.h"
+#include "tao/PortableServer/Object_SArg_Traits.h"
+#include "tao/PortableServer/UB_String_SArguments.h"
+#include "tao/PortableServer/get_arg.h"
+#include "tao/Special_Basic_Arguments.h"
+#include "tao/UB_String_Arguments.h"
 
 #if !defined (ACE_LACKS_PRAGMA_ONCE)
 # pragma once
 #endif /* ACE_LACKS_PRAGMA_ONCE */
 
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/PortableServer.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/PortableServer/Servant_Base.h"
+#include "tao/PortableServer/PortableServer.h"
+#include "tao/PortableServer/Servant_Base.h"
 // TAO_IDL - Generated from
 // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_arg_traits.cpp:64
 
@@ -62,15 +62,15 @@ namespace TAO
 
   
 
-#if !defined (_HELLO__SARG_TRAITS_)
-#define _HELLO__SARG_TRAITS_
+#if !defined (_HELLO_HELLOSERVICE__SARG_TRAITS_)
+#define _HELLO_HELLOSERVICE__SARG_TRAITS_
 
   template<>
-  class  SArg_Traits< ::Hello>
+  class  SArg_Traits< ::Hello::HelloService>
     : public Object_SArg_Traits_T<
-        ::Hello_ptr,
-        ::Hello_var,
-        ::Hello_out,
+        ::Hello::HelloService_ptr,
+        ::Hello::HelloService_var,
+        ::Hello::HelloService_out,
         TAO::Any_Insert_Policy_Stream>
   {
   };
@@ -81,50 +81,71 @@ namespace TAO
 TAO_END_VERSIONED_NAMESPACE_DECL
 
 
+// TAO_IDL - Generated from
+// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_module/module_sh.cpp:34
+
+namespace POA_Hello
+{
+  
+
+  
+  // TAO_IDL - Generated from
+  // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_interface/interface_sh.cpp:72
+
+  
+
+  class HelloService;
+  typedef HelloService *HelloService_ptr;
+
+  class  HelloService
+    : public virtual PortableServer::ServantBase
+  {
+  protected:
+    HelloService ();
+  
+  public:
+    /// Useful for template programming.
+    typedef ::Hello::HelloService _stub_type;
+    typedef ::Hello::HelloService_ptr _stub_ptr_type;
+    typedef ::Hello::HelloService_var _stub_var_type;
+
+    HelloService (const HelloService& rhs);
+    virtual ~HelloService () = default;
+
+    virtual ::CORBA::Boolean _is_a (const char* logical_type_id);
+
+    virtual void _dispatch (
+        TAO_ServerRequest & req,
+        TAO::Portable_Server::Servant_Upcall *servant_upcall);
+    
+    ::Hello::HelloService *_this ();
+    
+    virtual const char* _interface_repository_id () const;
+    // TAO_IDL - Generated from
+    // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_operation/operation_sh.cpp:35
+
+    virtual char * sayHello () = 0;
+
+    static void sayHello_skel (
+        TAO_ServerRequest &server_request,
+        TAO::Portable_Server::Servant_Upcall *servant_upcall,
+        TAO_ServantBase *servant);
+    // TAO_IDL - Generated from
+    // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_operation/operation_sh.cpp:35
+
+    virtual char * getCurrentDateTime () = 0;
+
+    static void getCurrentDateTime_skel (
+        TAO_ServerRequest &server_request,
+        TAO::Portable_Server::Servant_Upcall *servant_upcall,
+        TAO_ServantBase *servant);
+  };
 
 
 // TAO_IDL - Generated from
-// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_interface/interface_sh.cpp:72
+// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_module/module_sh.cpp:65
 
-
-
-class POA_Hello;
-typedef POA_Hello *POA_Hello_ptr;
-
-class  POA_Hello
-  : public virtual PortableServer::ServantBase
-{
-protected:
-  POA_Hello ();
-
-public:
-  /// Useful for template programming.
-  typedef ::Hello _stub_type;
-  typedef ::Hello_ptr _stub_ptr_type;
-  typedef ::Hello_var _stub_var_type;
-
-  POA_Hello (const POA_Hello& rhs);
-  virtual ~POA_Hello () = default;
-
-  virtual ::CORBA::Boolean _is_a (const char* logical_type_id);
-
-  virtual void _dispatch (
-      TAO_ServerRequest & req,
-      TAO::Portable_Server::Servant_Upcall *servant_upcall);
-  
-  ::Hello *_this ();
-  
-  virtual const char* _interface_repository_id () const;
-  // TAO_IDL - Generated from
-  // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_operation/operation_sh.cpp:35
-
-  virtual char * sayHello () = 0;
-
-  static void sayHello_skel (
-      TAO_ServerRequest &server_request,
-      TAO::Portable_Server::Servant_Upcall *servant_upcall,
-      TAO_ServantBase *servant);
-};
+} // module Hello
 
 #endif /* ifndef */
 

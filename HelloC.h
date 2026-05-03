@@ -25,35 +25,35 @@
 // TAO_IDL - Generated from
 // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_codegen.cpp:148
 
-#ifndef _TAO_IDL_HELLOC_UXNZPG_H_
-#define _TAO_IDL_HELLOC_UXNZPG_H_
+#ifndef _TAO_IDL_HELLOC_NAWGH0_H_
+#define _TAO_IDL_HELLOC_NAWGH0_H_
 
 
-#include /**/ "/home/carlos/ACE_wrappers/ace/config-all.h"
+#include /**/ "ace/config-all.h"
 
 #if !defined (ACE_LACKS_PRAGMA_ONCE)
 # pragma once
 #endif /* ACE_LACKS_PRAGMA_ONCE */
 
 
-#include "/home/carlos/ACE_wrappers/TAO/tao/AnyTypeCode/AnyTypeCode_methods.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/AnyTypeCode/Any.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/ORB.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/SystemException.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Basic_Types.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/ORB_Constants.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Object.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Objref_VarOut_T.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Arg_Traits_T.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Basic_Arguments.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Special_Basic_Arguments.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Any_Insert_Policy_T.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Fixed_Size_Argument_T.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Var_Size_Argument_T.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/Object_Argument_T.h"
-#include "/home/carlos/ACE_wrappers/TAO/tao/UB_String_Arguments.h"
-#include /**/ "/home/carlos/ACE_wrappers/TAO/tao/Version.h"
-#include /**/ "/home/carlos/ACE_wrappers/TAO/tao/Versioned_Namespace.h"
+#include "tao/AnyTypeCode/AnyTypeCode_methods.h"
+#include "tao/AnyTypeCode/Any.h"
+#include "tao/ORB.h"
+#include "tao/SystemException.h"
+#include "tao/Basic_Types.h"
+#include "tao/ORB_Constants.h"
+#include "tao/Object.h"
+#include "tao/Objref_VarOut_T.h"
+#include "tao/Arg_Traits_T.h"
+#include "tao/Basic_Arguments.h"
+#include "tao/Special_Basic_Arguments.h"
+#include "tao/Any_Insert_Policy_T.h"
+#include "tao/Fixed_Size_Argument_T.h"
+#include "tao/Var_Size_Argument_T.h"
+#include "tao/Object_Argument_T.h"
+#include "tao/UB_String_Arguments.h"
+#include /**/ "tao/Version.h"
+#include /**/ "tao/Versioned_Namespace.h"
 
 #if TAO_MAJOR_VERSION != 3 || TAO_MINOR_VERSION != 1 || TAO_MICRO_VERSION != 0
 #error This file should be regenerated with TAO_IDL
@@ -74,88 +74,102 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_interface.cpp:742
+// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_module/module_ch.cpp:34
 
+namespace Hello
+{
+  // TAO_IDL - Generated from
+  // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_interface.cpp:742
 
+  
 
-#if !defined (_HELLO__VAR_OUT_CH_)
-#define _HELLO__VAR_OUT_CH_
+#if !defined (_HELLO_HELLOSERVICE__VAR_OUT_CH_)
+#define _HELLO_HELLOSERVICE__VAR_OUT_CH_
 
-class Hello;
-using Hello_ptr = Hello*;
-using Hello_var = TAO_Objref_Var_T<Hello>;
-using Hello_out = TAO_Objref_Out_T<Hello>;
+  class HelloService;
+  using HelloService_ptr = HelloService*;
+  using HelloService_var = TAO_Objref_Var_T<HelloService>;
+  using HelloService_out = TAO_Objref_Out_T<HelloService>;
 
 #endif /* end #if !defined */
 
-
-// TAO_IDL - Generated from
-// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_interface/interface_ch.cpp:39
-
-
-
-class  Hello
-  : public virtual ::CORBA::Object
-{
-public:
-  friend class TAO::Narrow_Utils<Hello>;
-  // TAO_IDL - Generated from
-  // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_type.cpp:296
-
-  using _ptr_type = Hello_ptr;
-  using _var_type = Hello_var;
-  using _out_type = Hello_out;
-
-  static void _tao_any_destructor (void *);
-
-  // The static operations.
-  static Hello_ptr _duplicate (Hello_ptr obj);
-
-  static void _tao_release (Hello_ptr obj);
-
-  static Hello_ptr _narrow (::CORBA::Object_ptr obj);
-  static Hello_ptr _unchecked_narrow (::CORBA::Object_ptr obj);
-  static Hello_ptr _nil ();
-
-  virtual char * sayHello ();
-
   
   // TAO_IDL - Generated from
-  // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_interface/interface_ch.cpp:135
+  // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_interface/interface_ch.cpp:39
 
   
 
-  virtual ::CORBA::Boolean _is_a (const char *type_id);
-  virtual const char* _interface_repository_id () const;
-  virtual ::CORBA::Boolean marshal (TAO_OutputCDR &cdr);
+  class  HelloService
+    : public virtual ::CORBA::Object
+  {
+  public:
+    friend class TAO::Narrow_Utils<HelloService>;
+    // TAO_IDL - Generated from
+    // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_type.cpp:296
 
-protected:
-  // Concrete interface only.
-  Hello ();
+    using _ptr_type = HelloService_ptr;
+    using _var_type = HelloService_var;
+    using _out_type = HelloService_out;
 
-  // Concrete non-local interface only.
-  Hello (::IOP::IOR *ior, TAO_ORB_Core *orb_core);
+    static void _tao_any_destructor (void *);
+
+    // The static operations.
+    static HelloService_ptr _duplicate (HelloService_ptr obj);
+
+    static void _tao_release (HelloService_ptr obj);
+
+    static HelloService_ptr _narrow (::CORBA::Object_ptr obj);
+    static HelloService_ptr _unchecked_narrow (::CORBA::Object_ptr obj);
+    static HelloService_ptr _nil ();
+
+    virtual char * sayHello ();
+
+    virtual char * getCurrentDateTime ();
+
+    
+    // TAO_IDL - Generated from
+    // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_interface/interface_ch.cpp:135
+
+    
+
+    virtual ::CORBA::Boolean _is_a (const char *type_id);
+    virtual const char* _interface_repository_id () const;
+    virtual ::CORBA::Boolean marshal (TAO_OutputCDR &cdr);
   
-  // Non-local interface only.
-  Hello (
-      TAO_Stub *objref,
-      ::CORBA::Boolean _tao_collocated = false,
-      TAO_Abstract_ServantBase *servant = nullptr,
-      TAO_ORB_Core *orb_core = nullptr);
+  protected:
+    // Concrete interface only.
+    HelloService ();
 
-  virtual ~Hello () = default;
+    // Concrete non-local interface only.
+    HelloService (::IOP::IOR *ior, TAO_ORB_Core *orb_core);
+    
+    // Non-local interface only.
+    HelloService (
+        TAO_Stub *objref,
+        ::CORBA::Boolean _tao_collocated = false,
+        TAO_Abstract_ServantBase *servant = nullptr,
+        TAO_ORB_Core *orb_core = nullptr);
 
-private:
-  // Private and unimplemented for concrete interfaces.
-  Hello (const Hello &) = delete;
-  Hello (Hello &&) = delete;
-  Hello &operator= (const Hello &) = delete;
-  Hello &operator= (Hello &&) = delete;
-};
+    virtual ~HelloService () = default;
+  
+  private:
+    // Private and unimplemented for concrete interfaces.
+    HelloService (const HelloService &) = delete;
+    HelloService (HelloService &&) = delete;
+    HelloService &operator= (const HelloService &) = delete;
+    HelloService &operator= (HelloService &&) = delete;
+  };
+  // TAO_IDL - Generated from
+  // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typecode/typecode_decl.cpp:33
+
+  extern  ::CORBA::TypeCode_ptr const _tc_HelloService;
+
+
 // TAO_IDL - Generated from
-// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_typecode/typecode_decl.cpp:33
+// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_module/module_ch.cpp:62
 
-extern  ::CORBA::TypeCode_ptr const _tc_Hello;
+
+} // module Hello
 // TAO_IDL - Generated from
 // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_arg_traits.cpp:64
 
@@ -172,16 +186,16 @@ namespace TAO
 
   
 
-#if !defined (_HELLO__ARG_TRAITS_)
-#define _HELLO__ARG_TRAITS_
+#if !defined (_HELLO_HELLOSERVICE__ARG_TRAITS_)
+#define _HELLO_HELLOSERVICE__ARG_TRAITS_
 
   template<>
-  class  Arg_Traits< ::Hello>
+  class  Arg_Traits< ::Hello::HelloService>
     : public Object_Arg_Traits_T<
-        ::Hello_ptr,
-        ::Hello_var,
-        ::Hello_out,
-        TAO::Objref_Traits<Hello>,
+        ::Hello::HelloService_ptr,
+        ::Hello::HelloService_var,
+        ::Hello::HelloService_out,
+        TAO::Objref_Traits<Hello::HelloService>,
         TAO::Any_Insert_Policy_Stream>
   {
   };
@@ -203,16 +217,16 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 namespace TAO
 {
 
-#if !defined (_HELLO__TRAITS_)
-#define _HELLO__TRAITS_
+#if !defined (_HELLO_HELLOSERVICE__TRAITS_)
+#define _HELLO_HELLOSERVICE__TRAITS_
 
   template<>
-  struct  Objref_Traits< ::Hello>
+  struct  Objref_Traits< ::Hello::HelloService>
   {
-    static ::Hello_ptr duplicate (::Hello_ptr p);
-    static void release (::Hello_ptr p);
-    static ::Hello_ptr nil ();
-    static ::CORBA::Boolean marshal (const ::Hello_ptr p,TAO_OutputCDR & cdr);
+    static ::Hello::HelloService_ptr duplicate (::Hello::HelloService_ptr p);
+    static void release (::Hello::HelloService_ptr p);
+    static ::Hello::HelloService_ptr nil ();
+    static ::CORBA::Boolean marshal (const ::Hello::HelloService_ptr p,TAO_OutputCDR & cdr);
   };
 
 #endif /* end #if !defined */
@@ -231,9 +245,9 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 namespace CORBA {
 
- void operator<<= (::CORBA::Any &, Hello_ptr); // copying
- void operator<<= (::CORBA::Any &, Hello_ptr *); // non-copying
- ::CORBA::Boolean operator>>= (const ::CORBA::Any &, Hello_ptr &);
+ void operator<<= (::CORBA::Any &, Hello::HelloService_ptr); // copying
+ void operator<<= (::CORBA::Any &, Hello::HelloService_ptr *); // non-copying
+ ::CORBA::Boolean operator>>= (const ::CORBA::Any &, Hello::HelloService_ptr &);
 }
 TAO_END_VERSIONED_NAMESPACE_DECL
 
@@ -247,8 +261,8 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
- ::CORBA::Boolean operator<< (TAO_OutputCDR &, const Hello_ptr );
- ::CORBA::Boolean operator>> (TAO_InputCDR &, Hello_ptr &);
+ ::CORBA::Boolean operator<< (TAO_OutputCDR &, const Hello::HelloService_ptr );
+ ::CORBA::Boolean operator>> (TAO_InputCDR &, Hello::HelloService_ptr &);
 
 TAO_END_VERSIONED_NAMESPACE_DECL
 

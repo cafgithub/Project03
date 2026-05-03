@@ -4,26 +4,31 @@
 #include <ctime>
 #include <sstream>
 #include <string>
+#include <iomanip>
 
-class HelloImpl : public POA_Hello {
+class HelloImpl : public POA_Hello::HelloService {
 public:
     virtual char* sayHello() override {
+        ACE_DEBUG((LM_INFO, "📞 Client called sayHello()\n"));
+        return CORBA::string_dup("Hello from TAO Server registered with Central Naming Service! - CAF Merdoso");
+    }
+    
+    // New function implementation
+    virtual char* getCurrentDateTime() override {
         // Get current time
         time_t now = time(0);
-        std::string time_str = ctime(&now);
-        // Remove newline character from ctime result
-        if (!time_str.empty() && time_str[time_str.length()-1] == '\n') {
-            time_str.erase(time_str.length()-1);
-        }
+        struct tm* timeinfo = localtime(&now);
         
-        // Log to console when this method is called by client
-        ACE_DEBUG((LM_INFO, "📞 Client called sayHello() at %s\n", time_str.c_str()));
-        
-        // Create response message with timestamp
+        // Format the date and time
         std::ostringstream oss;
-        oss << "Hello from TAO Server registered with Central Naming Service! - CAF Merdoso [Time: " << time_str << "]";
+        oss << std::put_time(timeinfo, "%Y-%m-%d %H:%M:%S");
         
-        return CORBA::string_dup(oss.str().c_str());
+        std::string datetime = oss.str();
+        
+        // Log to console
+        ACE_DEBUG((LM_INFO, "📞 Client requested current date/time: %s\n", datetime.c_str()));
+        
+        return CORBA::string_dup(datetime.c_str());
     }
 };
 
@@ -37,7 +42,7 @@ int main(int argc, char* argv[]) {
         HelloImpl* hello_impl = new HelloImpl();
         PortableServer::ObjectId_var oid = root_poa->activate_object(hello_impl);
         
-        Hello_var hello = hello_impl->_this();
+        Hello::HelloService_var hello = hello_impl->_this();
         
         PortableServer::POAManager_var poa_manager = root_poa->the_POAManager();
         poa_manager->activate();
@@ -58,6 +63,9 @@ int main(int argc, char* argv[]) {
         ACE_DEBUG((LM_INFO, "\n========================================\n"));
         ACE_DEBUG((LM_INFO, "✅ Server registered with Naming Service\n"));
         ACE_DEBUG((LM_INFO, "   Service Name: HelloService\n"));
+        ACE_DEBUG((LM_INFO, "   Available methods:\n"));
+        ACE_DEBUG((LM_INFO, "     - sayHello()\n"));
+        ACE_DEBUG((LM_INFO, "     - getCurrentDateTime()\n"));
         ACE_DEBUG((LM_INFO, "🟢 Server is running...\n"));
         ACE_DEBUG((LM_INFO, "========================================\n\n"));
         

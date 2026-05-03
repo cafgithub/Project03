@@ -50,28 +50,28 @@
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
-// Traits specializations for Hello.
+// Traits specializations for Hello::HelloService.
 
-Hello_ptr
-TAO::Objref_Traits<Hello>::duplicate (Hello_ptr p)
+Hello::HelloService_ptr
+TAO::Objref_Traits<Hello::HelloService>::duplicate (Hello::HelloService_ptr p)
 {
-  return Hello::_duplicate (p);
+  return Hello::HelloService::_duplicate (p);
 }
 
 void
-TAO::Objref_Traits<Hello>::release (Hello_ptr p)
+TAO::Objref_Traits<Hello::HelloService>::release (Hello::HelloService_ptr p)
 {
   ::CORBA::release (p);
 }
 
-Hello_ptr
-TAO::Objref_Traits<Hello>::nil ()
+Hello::HelloService_ptr
+TAO::Objref_Traits<Hello::HelloService>::nil ()
 {
-  return Hello::_nil ();
+  return Hello::HelloService::_nil ();
 }
 
 ::CORBA::Boolean
-TAO::Objref_Traits<Hello>::marshal (const Hello_ptr p,TAO_OutputCDR & cdr)
+TAO::Objref_Traits<Hello::HelloService>::marshal (const Hello::HelloService_ptr p,TAO_OutputCDR & cdr)
 {
   return ::CORBA::Object::marshal (p, cdr);
 }
@@ -83,7 +83,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_operation/operation_cs.cpp:87
 
 char *
-Hello::sayHello ()
+Hello::HelloService::sayHello ()
 {
   if (!this->is_evaluated ())
     {
@@ -114,38 +114,73 @@ Hello::sayHello ()
 
   return _tao_retval.retn ();
 }
+// TAO_IDL - Generated from
+// /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_operation/operation_cs.cpp:87
 
-Hello::Hello ()
+char *
+Hello::HelloService::getCurrentDateTime ()
+{
+  if (!this->is_evaluated ())
+    {
+      ::CORBA::Object::tao_object_initialize (this);
+    }
+  
+  TAO::Arg_Traits< char *>::ret_val _tao_retval;
+
+  TAO::Argument *_the_tao_operation_signature [] =
+    {
+      std::addressof(_tao_retval)
+    };
+
+  TAO::Invocation_Adapter _invocation_call (
+      this,
+      _the_tao_operation_signature,
+      1,
+      "getCurrentDateTime",
+      18,
+      TAO::TAO_CO_NONE | TAO::TAO_CO_THRU_POA_STRATEGY,
+      TAO::TAO_TWOWAY_INVOCATION
+      ,
+      TAO::TAO_SYNCHRONOUS_INVOCATION,
+      false
+    );
+
+  _invocation_call.invoke (nullptr, 0);
+
+  return _tao_retval.retn ();
+}
+
+Hello::HelloService::HelloService ()
 {
 }
 void
-Hello::_tao_any_destructor (void *_tao_void_pointer)
+Hello::HelloService::_tao_any_destructor (void *_tao_void_pointer)
 {
-  Hello *_tao_tmp_pointer =
-    static_cast<Hello *> (_tao_void_pointer);
+  HelloService *_tao_tmp_pointer =
+    static_cast<HelloService *> (_tao_void_pointer);
   ::CORBA::release (_tao_tmp_pointer);
 }
 
-Hello_ptr
-Hello::_narrow (::CORBA::Object_ptr _tao_objref)
+Hello::HelloService_ptr
+Hello::HelloService::_narrow (::CORBA::Object_ptr _tao_objref)
 {
-  return TAO::Narrow_Utils<Hello>::narrow (_tao_objref, "IDL:Hello:1.0");
+  return TAO::Narrow_Utils<HelloService>::narrow (_tao_objref, "IDL:Hello/HelloService:1.0");
 }
 
-Hello_ptr
-Hello::_unchecked_narrow (::CORBA::Object_ptr _tao_objref)
+Hello::HelloService_ptr
+Hello::HelloService::_unchecked_narrow (::CORBA::Object_ptr _tao_objref)
 {
-  return TAO::Narrow_Utils<Hello>::unchecked_narrow (_tao_objref);
+  return TAO::Narrow_Utils<HelloService>::unchecked_narrow (_tao_objref);
 }
 
-Hello_ptr
-Hello::_nil ()
+Hello::HelloService_ptr
+Hello::HelloService::_nil ()
 {
   return nullptr;
 }
 
-Hello_ptr
-Hello::_duplicate (Hello_ptr obj)
+Hello::HelloService_ptr
+Hello::HelloService::_duplicate (HelloService_ptr obj)
 {
   if (! ::CORBA::is_nil (obj))
     {
@@ -155,16 +190,16 @@ Hello::_duplicate (Hello_ptr obj)
 }
 
 void
-Hello::_tao_release (Hello_ptr obj)
+Hello::HelloService::_tao_release (HelloService_ptr obj)
 {
   ::CORBA::release (obj);
 }
 
 ::CORBA::Boolean
-Hello::_is_a (const char *value)
+Hello::HelloService::_is_a (const char *value)
 {
   if (
-      std::strcmp (value, "IDL:Hello:1.0") == 0 ||
+      std::strcmp (value, "IDL:Hello/HelloService:1.0") == 0 ||
       std::strcmp (value, "IDL:omg.org/CORBA/Object:1.0") == 0
       )
     {
@@ -176,13 +211,13 @@ Hello::_is_a (const char *value)
     }
 }
 
-const char* Hello::_interface_repository_id () const
+const char* Hello::HelloService::_interface_repository_id () const
 {
-  return "IDL:Hello:1.0";
+  return "IDL:Hello/HelloService:1.0";
 }
 
 ::CORBA::Boolean
-Hello::marshal (TAO_OutputCDR &cdr)
+Hello::HelloService::marshal (TAO_OutputCDR &cdr)
 {
   return (cdr << this);
 }
@@ -191,13 +226,17 @@ Hello::marshal (TAO_OutputCDR &cdr)
 
 static TAO::TypeCode::Objref<char const *,
                              TAO::Null_RefCount_Policy>
-  _tao_tc_Hello (
+  _tao_tc_Hello_HelloService (
     ::CORBA::tk_objref,
-    "IDL:Hello:1.0",
-    "Hello");
+    "IDL:Hello/HelloService:1.0",
+    "HelloService");
   
-::CORBA::TypeCode_ptr const _tc_Hello =
-  &_tao_tc_Hello;
+
+namespace Hello
+{
+  ::CORBA::TypeCode_ptr const _tc_HelloService =
+    &_tao_tc_Hello_HelloService;
+}
 // TAO_IDL - Generated from
 // /home/carlos/ACE_wrappers/TAO/TAO_IDL/be/be_visitor_interface/any_op_cs.cpp:37
 
@@ -210,7 +249,7 @@ namespace TAO
 {
   template<>
   ::CORBA::Boolean
-  Any_Impl_T<Hello>::to_object (
+  Any_Impl_T<Hello::HelloService>::to_object (
       ::CORBA::Object_ptr &_tao_elem) const
   {
     _tao_elem = ::CORBA::Object::_duplicate (this->value_);
@@ -229,10 +268,10 @@ namespace CORBA {
 void
 operator<<= (
   ::CORBA::Any &_tao_any,
-  Hello_ptr _tao_elem)
+  Hello::HelloService_ptr _tao_elem)
 {
-  Hello_ptr _tao_objptr =
-    Hello::_duplicate (_tao_elem);
+  Hello::HelloService_ptr _tao_objptr =
+    Hello::HelloService::_duplicate (_tao_elem);
   _tao_any <<= std::addressof(_tao_objptr);
 }
 
@@ -240,25 +279,25 @@ operator<<= (
 void
 operator<<= (
   ::CORBA::Any &_tao_any,
-  Hello_ptr *_tao_elem)
+  Hello::HelloService_ptr *_tao_elem)
 {
-  TAO::Any_Impl_T<Hello>::insert (
+  TAO::Any_Impl_T<Hello::HelloService>::insert (
     _tao_any,
-    Hello::_tao_any_destructor,
-    _tc_Hello,
+    Hello::HelloService::_tao_any_destructor,
+    Hello::_tc_HelloService,
     *_tao_elem);
 }
 
 ::CORBA::Boolean
 operator>>= (
     const ::CORBA::Any &_tao_any,
-    Hello_ptr &_tao_elem)
+    Hello::HelloService_ptr &_tao_elem)
 {
   return
-    TAO::Any_Impl_T<Hello>::extract (
+    TAO::Any_Impl_T<Hello::HelloService>::extract (
         _tao_any,
-        Hello::_tao_any_destructor,
-        _tc_Hello,
+        Hello::HelloService::_tao_any_destructor,
+        Hello::_tc_HelloService,
         _tao_elem);
 }
 
@@ -274,7 +313,7 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
 ::CORBA::Boolean operator<< (
     TAO_OutputCDR &strm,
-    const Hello_ptr _tao_objref)
+    const Hello::HelloService_ptr _tao_objref)
 {
   ::CORBA::Object_ptr _tao_corba_obj = _tao_objref;
   return (strm << _tao_corba_obj);
@@ -282,7 +321,7 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
 ::CORBA::Boolean operator>> (
     TAO_InputCDR &strm,
-    Hello_ptr &_tao_objref)
+    Hello::HelloService_ptr &_tao_objref)
 {
   ::CORBA::Object_var obj;
 
@@ -292,7 +331,7 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
     }
   
   // Narrow to the right type.
-  _tao_objref = TAO::Narrow_Utils< ::Hello>::unchecked_narrow (obj.in ());
+  _tao_objref = TAO::Narrow_Utils< ::Hello::HelloService>::unchecked_narrow (obj.in ());
 
   return true;
 }
